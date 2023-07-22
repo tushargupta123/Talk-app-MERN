@@ -5,7 +5,7 @@ import Chat from './Pages/Chat';
 
 function App() {
   return (
-    <div class="App">
+    <div className="App">
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/chats" element={<Chat/>}/>

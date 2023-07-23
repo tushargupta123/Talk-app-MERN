@@ -59,7 +59,7 @@ import ChatLoading from "../ChatLoading";
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const { data } = await axios.get(`https://talk-app-backend.vercel.app/api/user?search=${search}`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/user?search=${search}`, config);
         console.log(data);
         setLoading(false);
         setSearchResult(data);
@@ -98,7 +98,7 @@ import ChatLoading from "../ChatLoading";
           },
         };
         const { data } = await axios.post(
-          `https://talk-app-backend.vercel.app/api/chat/group`,
+          `http://localhost:5000/api/chat/group`,
           {
             name: groupChatName,
             users: JSON.stringify(selectedUsers.map((u) => u._id)),

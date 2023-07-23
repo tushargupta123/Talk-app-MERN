@@ -5,20 +5,20 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
-app.use(
-  cors({
-    origin: "https://lets-chat-beta.vercel.app",
-  })
-);
+const path = require("path");
+const http = require("http"); // Import http module for socket.io
+
+app.use(cors());
 app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
-
-const server = app.listen(5000, () => {
-  console.log("server started on port 5000");
-  connect();
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
+
+const server = http.createServer(app); // Create a server using http module
 const io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:3000",
@@ -55,7 +55,13 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.off("setup", (userData) => {
-    socket.leave(userData._id);
+  socket.off("disconnect", () => {
+    console.log("disconnected from server.io");
   });
+});
+
+const PORT = 5000;
+server.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+  connect();
 });

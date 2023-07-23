@@ -24,7 +24,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("https://talk-app-backend.vercel.app/api/chat", config);
+      const { data } = await axios.get("http://localhost:5000/api/chat", config);
       setChats(data);
     } catch (error) {
       toast({
@@ -42,6 +42,10 @@ const MyChats = ({ fetchAgain }) => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
   }, [fetchAgain]);
+
+  useEffect(() => {
+    console.log(chats)
+  },[chats])
 
   return (
     <Box
@@ -85,7 +89,7 @@ const MyChats = ({ fetchAgain }) => {
       borderRadius="lg"
       overflowY="hidden"
     >
-      {chats ? (
+      {chats && chats ? (
         <Stack overflowY="scroll">
           {chats.map((chat) => (
             <Box

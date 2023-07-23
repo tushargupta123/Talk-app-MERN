@@ -5,6 +5,10 @@
         "use": "@vercel/node"
       }
     ],
-  
+    "cors": {
+        "origin": "https://lets-chat-beta.vercel.app",
+        "methods": ["GET", "POST", "PUT"],
+        "allowedHeaders": ["Content-Type", "Authorization"]
+      },
     "rewrites": [{ "source": "/(.*)", "destination": "server.js" }]
   }

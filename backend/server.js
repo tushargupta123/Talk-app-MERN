@@ -21,7 +21,7 @@ app.get("*", (req, res) => {
 const server = http.createServer(app); // Create a server using http module
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://lets-chat-sage.vercel.app",
   },
   pingTimeout: 60000,
 });

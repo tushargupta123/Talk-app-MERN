@@ -12,13 +12,6 @@ app.use(
     credentials: true,
   })
 );
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://lets-chat-beta.vercel.app"
-  );
-  next();
-});
 app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);

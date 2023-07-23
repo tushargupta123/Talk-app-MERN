@@ -5,7 +5,13 @@ const userRoutes = require('./routes/userRoutes')
 const chatRoutes = require('./routes/chatRoutes')
 const messageRoutes = require('./routes/messageRoutes')
 const cors = require('cors');
-app.use(cors())
+app.use(cors(
+    {
+        origin:["https://talk-app-backend.vercel.app/"],
+        methods: ["GET", "POST", "PUT"],
+        credentials: true
+    }
+))
 app.use(express.json());
 app.use('/api/user',userRoutes);
 app.use('/api/chat',chatRoutes);

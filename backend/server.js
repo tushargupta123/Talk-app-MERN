@@ -8,8 +8,6 @@ const cors = require("cors");
 app.use(
   cors({
     origin: "https://lets-chat-beta.vercel.app",
-    methods: ["GET", "POST", "PUT"],
-    credentials: true,
   })
 );
 app.use(express.json());

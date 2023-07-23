@@ -34,7 +34,6 @@ const Login = () => {
         const {data} = await axios.post('https://lets-chat-sage.vercel.app/api/user/login',{
           email,password
         },config);
-        console.log(data)
         toast({
           title:"Logged in successful",
           status: "success",

@@ -31,7 +31,7 @@ const Login = () => {
             "Content-Type": "application/json",
           }
         }
-        const {data} = await axios.post('http://localhost:5000/api/user/login',{
+        const {data} = await axios.post('https://talk-app-backend.vercel.app/api/user/login',{
           email,password
         },config);
         console.log(data)

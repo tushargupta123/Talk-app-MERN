@@ -19,7 +19,7 @@ import io from "socket.io-client";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = "https://talk-app-backend.vercel.app";
   const { user, selectedChat, setSelectedChat,notification,setNotification } = ChatState();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState();

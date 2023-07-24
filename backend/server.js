@@ -18,7 +18,7 @@ app.use("/message", messageRoutes);
 const server = http.createServer(app); // Create a server using http module
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://localhost:3000",
+    origin: "https://lets-chat-two-khaki.vercel.app",
   },
   pingTimeout: 60000,
 });

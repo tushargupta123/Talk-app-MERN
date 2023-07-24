@@ -7,7 +7,9 @@ const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
 const http = require("http"); // Import http module for socket.io
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://lets-chat-two-khaki.vercel.app'
+}));
 app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/chat", chatRoutes);

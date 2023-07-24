@@ -1,15 +1,16 @@
 const express = require("express");
 const connect = require("./config/db");
 const app = express();
-const userRoutes = require("./routes/userRoutes");
-const chatRoutes = require("./routes/chatRoutes");
-const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
-const http = require("http"); // Import http module for socket.io
-
 app.use(cors({
   origin: 'https://lets-chat-two-khaki.vercel.app'
 }));
+
+const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+const messageRoutes = require("./routes/messageRoutes");
+const http = require("http"); // Import http module for socket.io
+
 app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/chat", chatRoutes);

@@ -13,15 +13,17 @@ app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
-app.use(express.static(path.resolve(__dirname, "/build")));
+
+const __dirname1 = path.resolve();
+app.use(express.static(path.join(__dirname1, "/build")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build/index.html"));
+  res.sendFile(path.resolve(__dirname1,"build","index.html"));
 });
 
 const server = http.createServer(app); // Create a server using http module
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://lets-chat-sage.vercel.app",
+    origin: "https://localhost:3000",
   },
   pingTimeout: 60000,
 });

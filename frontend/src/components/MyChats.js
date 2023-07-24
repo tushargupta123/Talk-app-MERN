@@ -24,7 +24,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get("https://talk-app-mern.vercel.app/chat", config);
       setChats(data);
     } catch (error) {
       toast({

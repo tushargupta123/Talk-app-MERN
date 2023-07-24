@@ -46,7 +46,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(`https://talk-app-mern.vercel.app/user?search=${search}`, config);
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -73,7 +73,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/rename`,
+        `https://talk-app-mern.vercel.app/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -128,7 +128,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/groupadd`,
+        `https://talk-app-mern.vercel.app/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -173,7 +173,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `/api/chat/groupremove`,
+        `https://talk-app-mern.vercel.app/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,

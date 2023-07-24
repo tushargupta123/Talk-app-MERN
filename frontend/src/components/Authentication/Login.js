@@ -31,7 +31,7 @@ const Login = () => {
             "Content-Type": "application/json",
           }
         }
-        const {data} = await axios.post('https://lets-chat-sage.vercel.app/api/user/login',{
+        const {data} = await axios.post('/api/user/login',{
           email,password
         },config);
         toast({

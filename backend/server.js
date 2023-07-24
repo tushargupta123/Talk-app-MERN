@@ -5,20 +5,13 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const cors = require("cors");
-const path = require("path");
 const http = require("http"); // Import http module for socket.io
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/user", userRoutes);
-app.use("/api/chat", chatRoutes);
-app.use("/api/message", messageRoutes);
-
-const __dirname1 = path.resolve();
-app.use(express.static(path.join(__dirname1, "/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname1,"build","index.html"));
-});
+app.use("/user", userRoutes);
+app.use("/chat", chatRoutes);
+app.use("/message", messageRoutes);
 
 const server = http.createServer(app); // Create a server using http module
 const io = require("socket.io")(server, {

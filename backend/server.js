@@ -2,9 +2,7 @@ const express = require("express");
 const connect = require("./config/db");
 const app = express();
 const cors = require("cors");
-app.use(cors({
-  origin: 'https://lets-chat-two-khaki.vercel.app'
-}));
+app.use(cors());
 
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");

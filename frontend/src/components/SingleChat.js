@@ -19,7 +19,7 @@ import io from "socket.io-client";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  const ENDPOINT = "https://talk-app-mern.vercel.app";
+  const ENDPOINT = "http://localhost:5000";
   const { user, selectedChat, setSelectedChat,notification,setNotification } = ChatState();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState();
@@ -58,7 +58,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `https://talk-app-mern.vercel.app/message/${selectedChat._id}`,
+        `http://localhost:5000/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -88,7 +88,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "https://talk-app-mern.vercel.app/message",
+          "http://localhost:5000/message",
           {
             content: newMessage,
             chatId: selectedChat,

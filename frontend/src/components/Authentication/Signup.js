@@ -72,7 +72,7 @@ const Signup = () => {
             "Content-Type": "application/json",
           }
         }
-        const {data} = await axios.post('https://talk-app-mern.vercel.app/user/signup',{
+        const {data} = await axios.post('http://localhost:5000/user/signup',{
           name,email,password,pic
         },config);
         toast({

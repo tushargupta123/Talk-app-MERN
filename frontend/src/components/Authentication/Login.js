@@ -31,7 +31,7 @@ const Login = () => {
             "Content-Type": "application/json",
           }
         }
-        const {data} = await axios.post('https://talk-app-mern.vercel.app/user/login',{
+        const {data} = await axios.post('http://localhost:5000/user/login',{
           email,password
         },config);
         toast({

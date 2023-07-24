@@ -3,7 +3,9 @@ const connect = require("./config/db");
 const app = express();
 const cors = require("cors");
 app.use("/", require("./proxy"));
-app.use(cors());
+app.use(cors({
+  origin:true
+}));
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
